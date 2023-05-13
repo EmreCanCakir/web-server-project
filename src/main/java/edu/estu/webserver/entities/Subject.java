@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,4 +26,10 @@ public class Subject {
 
     @Column(name = "hour")
     private String hour;
+
+    @ManyToMany
+    @JoinTable(name = "program_subjects",
+            joinColumns = @JoinColumn(name = "program_id"),
+            inverseJoinColumns = @JoinColumn(name = "subject_id"))
+    private List<Program> programs;
 }

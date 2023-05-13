@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,8 +16,7 @@ import lombok.NoArgsConstructor;
 public class Program {
     @Id
     @Column(name = "program_id")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "programs_id_generator")
-    @SequenceGenerator(name = "programs_id_generator", sequenceName = "programs_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "title")
@@ -28,6 +29,8 @@ public class Program {
     private String hour;
 
     @OneToOne(mappedBy = "programId")
-    //@JsonIgnore
     private Trainer trainerId;
+
+    @ManyToMany(mappedBy = "programs")
+    private List<Subject> subjects;
 }
