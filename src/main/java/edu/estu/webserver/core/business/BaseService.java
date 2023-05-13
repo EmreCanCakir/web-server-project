@@ -8,5 +8,5 @@ public interface BaseService<T> {
     Result delete(T entity);
     Result update(T entity);
     DataResult getAll();
-    DataResult getById();
+    DataResult getById(int id);
 }
