@@ -33,8 +33,8 @@ public class MemberController {
         return CONSTANTS.getResponseEntity(memberService.add(member));
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable int id, @RequestBody Member member) {
+    @PutMapping("")
+    public ResponseEntity<?> update(@RequestBody Member member) {
         return CONSTANTS.getResponseEntity(memberService.update(member));
     }
 

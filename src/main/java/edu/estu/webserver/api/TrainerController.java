@@ -28,8 +28,8 @@ public class TrainerController {
         return CONSTANTS.getResponseEntity(trainerService.delete(id));
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> updateTrainer(@PathVariable int id, @RequestBody Trainer trainer) {
+    @PutMapping("")
+    public ResponseEntity<?> updateTrainer(@RequestBody Trainer trainer) {
         return CONSTANTS.getResponseEntity(trainerService.update(trainer));
     }
 

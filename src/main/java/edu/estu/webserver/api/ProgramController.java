@@ -33,8 +33,8 @@ public class ProgramController {
         return CONSTANTS.getResponseEntity(programService.add(program));
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable int id, @RequestBody Program program) {
+    @PutMapping("")
+    public ResponseEntity<?> update(@RequestBody Program program) {
         return CONSTANTS.getResponseEntity(programService.update(program));
     }
 

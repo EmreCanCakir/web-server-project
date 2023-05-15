@@ -33,8 +33,8 @@ public class SubjectController {
         return CONSTANTS.getResponseEntity(subjectService.add(subject));
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable int id, @RequestBody Subject subject) {
+    @PutMapping("")
+    public ResponseEntity<?> update(@RequestBody Subject subject) {
         return CONSTANTS.getResponseEntity(subjectService.update(subject));
     }
 

@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/admins")
 public class AdminController {
     private final AdminService adminService;
-
     @Autowired
     public AdminController(AdminService adminService) {
         this.adminService = adminService;
@@ -32,8 +31,8 @@ public class AdminController {
         return CONSTANTS.getResponseEntity(this.adminService.add(admin));
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<?> update(@PathVariable int id, @RequestBody Admin admin) {
+    @PutMapping("")
+    public ResponseEntity<?> update(@RequestBody Admin admin) {
         return CONSTANTS.getResponseEntity(this.adminService.update(admin));
     }
 
