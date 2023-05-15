@@ -1,5 +1,7 @@
 package edu.estu.webserver.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +15,7 @@ import java.time.LocalDateTime;
 @Data
 @Table(name = "trainers")
 @PrimaryKeyJoinColumn(name = "trainer_id", referencedColumnName = "id")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Trainer extends User {
     @Column(name = "is_active")
     private boolean isActive;

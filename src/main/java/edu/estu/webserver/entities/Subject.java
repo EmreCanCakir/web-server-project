@@ -1,5 +1,7 @@
 package edu.estu.webserver.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Table(name = "subjects")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Subject {
     @Id
     @Column(name = "subject_id")
@@ -28,6 +31,7 @@ public class Subject {
     private String hour;
 
     @ManyToMany
+    @JsonIgnore
     @JoinTable(name = "program_subjects",
             joinColumns = @JoinColumn(name = "program_id"),
             inverseJoinColumns = @JoinColumn(name = "subject_id"))

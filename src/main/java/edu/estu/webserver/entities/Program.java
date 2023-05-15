@@ -1,6 +1,7 @@
 package edu.estu.webserver.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +14,7 @@ import java.util.List;
 @AllArgsConstructor
 @Data
 @Table(name = "programs")
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 public class Program {
     @Id
     @Column(name = "program_id")
@@ -29,6 +31,7 @@ public class Program {
     private String hour;
 
     @OneToOne(mappedBy = "programId")
+    @JsonIgnore
     private Trainer trainerId;
 
     @ManyToMany(mappedBy = "programs")
